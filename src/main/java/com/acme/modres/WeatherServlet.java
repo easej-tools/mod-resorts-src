@@ -24,11 +24,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import javax.inject.Inject;
+// import javax.inject.Inject;
 import javax.management.InstanceAlreadyExistsException;
 import javax.management.InstanceNotFoundException;
 import javax.management.IntrospectionException;
-import javax.management.MBeanInfo;
+// import javax.management.MBeanInfo;
 import javax.management.MBeanRegistrationException;
 import javax.management.MBeanServer;
 import javax.management.MalformedObjectNameException;
@@ -54,6 +54,7 @@ public class WeatherServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(WeatherServlet.class.getName());
     
+	@SuppressWarnings("unused")
 	private static InitialContext context;
 
 	MBeanServer server;
@@ -66,7 +67,7 @@ public class WeatherServlet extends HttpServlet {
 		try {
 			weatherON = new ObjectName("com.acme.modres.mbean:name=appInfo");
 		} catch (MalformedObjectNameException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
@@ -85,7 +86,7 @@ public class WeatherServlet extends HttpServlet {
 			try {
 				server.unregisterMBean(weatherON);
 			} catch (MBeanRegistrationException | InstanceNotFoundException e) {
-				// TODO Auto-generated catch block
+				// Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -100,7 +101,7 @@ public class WeatherServlet extends HttpServlet {
 		logger.entering(WeatherServlet.class.getName(), methodName);
 
 		try {
-			MBeanInfo weatherConfig = server.getMBeanInfo(weatherON);
+			server.getMBeanInfo(weatherON);
 		} catch (IntrospectionException | InstanceNotFoundException | ReflectionException e) {
 			e.printStackTrace();
 		}
@@ -249,18 +250,19 @@ public class WeatherServlet extends HttpServlet {
 		return "*********" + lastToKeep;
 	}
 	
-	private String configureEnvDiscovery() {
+	// private String configureEnvDiscovery() {
 
-        String serverEnv = "";
+    //     String serverEnv = "";
 
-        serverEnv += System.getProperty("wlp.server.name");
-        serverEnv += System.getProperty("wlp.server.name");
+    //     serverEnv += System.getProperty("wlp.server.name");
+    //     serverEnv += System.getProperty("wlp.server.name");
 
-        return serverEnv;
-    }
+    //     return serverEnv;
+    // }
 
 	private InitialContext setInitialContextProps() {
 
+		@SuppressWarnings("rawtypes")
 		Hashtable ht = new Hashtable();
 
 		InitialContext ctx = null;
