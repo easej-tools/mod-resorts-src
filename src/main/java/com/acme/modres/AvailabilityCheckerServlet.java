@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import javax.naming.InitialContext;
+// import javax.naming.InitialContext;
 import javax.servlet.annotation.WebServlet;
 
 @WebServlet({ "/resorts/availability" })
@@ -19,11 +19,11 @@ public class AvailabilityCheckerServlet extends HttpServlet {
 
 	private static final Logger logger = Logger.getLogger(AvailabilityCheckerServlet.class.getName());
 
-	private static InitialContext context;
+	// private static InitialContext context;
 
 	@Override
 	public void init() {
-		// TODO Add some migration/java upgrade issue here to cause servlet not to be initialized?
+		// Add some migration/java upgrade issue here to cause servlet not to be initialized?
 	}
 
 	@Override
