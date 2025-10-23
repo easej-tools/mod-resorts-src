@@ -13,7 +13,7 @@ public class OpMetadata {
 	}
 	private String name;
 	private String description;
-	//TODO signature, assume empty for now
+	// signature, assume empty for now
 	private String type;
 	private int impact;
 
